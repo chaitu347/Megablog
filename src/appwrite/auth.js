@@ -6,7 +6,7 @@ export class AuthService {
     account;//we cannot assign the the this.client here becuase client didnt got the setendpoint and setproject 
 
     constructor(){
-        this.client()
+        this.client
             .setEndpoint(conf.appwriteUrl)//setendpoint is of appwrite url
             .setProject(conf.appwriteProjectId)//setproject is of project id
 
@@ -43,7 +43,7 @@ export class AuthService {
         try {
             return await this.account.get()
         } catch (error) {
-            throw error
+            console.log("There is no user logged in",error)
         }
     }
 
